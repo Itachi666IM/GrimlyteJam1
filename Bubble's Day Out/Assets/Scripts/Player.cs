@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed;
+    public float drownTime;
     bool drown;
     // Start is called before the first frame update
     void Start()
@@ -20,18 +21,21 @@ public class Player : MonoBehaviour
         {
             drown = true;
         }
-        else
-        {
-            drown = false;
-        }
     }
 
     private void Update()
     {
         if(drown)
         {
-            rb.velocity = Vector2.down * speed * Time.deltaTime;
+            StartCoroutine(StartDrown());   
         }
+    }
+
+    IEnumerator StartDrown()
+    {
+        rb.velocity = Vector2.down * speed * Time.deltaTime;
+        yield return new WaitForSeconds(drownTime);
+        drown = false;
     }
 
 }
