@@ -9,10 +9,16 @@ public class Player : MonoBehaviour
     public float speed;
     public float drownTime;
     bool drown;
+    public bool hasSlowPower = false;
+    public float slowDownTime;
+    [HideInInspector]public float defaultSpeed;
+
+    public GameObject slowEffect;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        defaultSpeed = speed;
     }
 
     void OnDrown(InputValue value)
@@ -29,6 +35,12 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(StartDrown());   
         }
+
+        if(hasSlowPower)
+        {
+            hasSlowPower = false;
+            Instantiate(slowEffect,transform.position,transform.rotation);
+        }
     }
 
     IEnumerator StartDrown()
@@ -37,5 +49,4 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(drownTime);
         drown = false;
     }
-
 }
