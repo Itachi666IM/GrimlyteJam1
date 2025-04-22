@@ -12,8 +12,8 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rb.velocity = Vector2.left *speed * Time.deltaTime;
+        rb.velocity = Vector2.left *speed * Time.fixedDeltaTime;
     }
 }

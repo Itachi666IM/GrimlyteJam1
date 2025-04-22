@@ -641,10 +641,11 @@ MonoBehaviour:
   - {fileID: 948040179504409712, guid: a2beae4f241afa54ab95d2a86911d809, type: 3}
   - {fileID: 948040179504409712, guid: a2beae4f241afa54ab95d2a86911d809, type: 3}
   - {fileID: 948040179504409712, guid: a2beae4f241afa54ab95d2a86911d809, type: 3}
-  - {fileID: 948040179504409712, guid: a2beae4f241afa54ab95d2a86911d809, type: 3}
   - {fileID: 4105895166048020219, guid: 6f94aa5082f0c134394762bd71298d22, type: 3}
+  - {fileID: 2031638933500922617, guid: 8365c60924bb8414e834ac38f5513bc8, type: 3}
   minSpawnTime: 0.1
   maxSpawnTime: 3
+  timeBetweenSpawns: 0
 --- !u!1 &1463133105
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +845,7 @@ MonoBehaviour:
   slowDownTime: 5
   defaultSpeed: 0
   slowEffect: {fileID: 4615701203046464812, guid: 3840be4f7652c9b469c881dfed309bc3, type: 3}
+  canReset: 0
 --- !u!114 &1664658464
 MonoBehaviour:
   m_ObjectHideFlags: 0

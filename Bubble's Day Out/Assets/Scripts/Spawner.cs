@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     Transform randomSpawnPoint;
     public float minSpawnTime;
     public float maxSpawnTime;
-    float timeBetweenSpawns;
+    [HideInInspector]public float timeBetweenSpawns;
     float nextSpawnTime;
 
     private void Start()
