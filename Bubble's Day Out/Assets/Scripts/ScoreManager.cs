@@ -18,6 +18,10 @@ public class ScoreManager : MonoBehaviour
     public GameObject bubbleEffect;
     public GameObject winPanel;
     public GameObject losePanel;
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+    bool once = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,11 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
+            if(!once)
+            {
+                once = true;
+                audioSource.PlayOneShot(audioClip);
+            }
             bubbleEffect.SetActive(false);
             if(score < 50)
             {
