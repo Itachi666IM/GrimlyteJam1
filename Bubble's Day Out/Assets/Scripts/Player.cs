@@ -18,12 +18,17 @@ public class Player : MonoBehaviour
     [HideInInspector]public bool canReset = false;
 
     Spawner spawner;
+
+    AudioSource audioSource;
+    public AudioClip timeSlow;
+    public AudioClip resetSpeed;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         defaultSpeed = speed;
         spawner = FindObjectOfType<Spawner>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnDrown(InputValue value)
@@ -40,11 +45,13 @@ public class Player : MonoBehaviour
         {
             canReset = false;
             spawner.timeBetweenSpawns = spawner.maxSpawnTime;
+            audioSource.PlayOneShot(resetSpeed);
         }
         if (hasSlowPower)
         {
             hasSlowPower = false;
             Instantiate(slowEffect, transform.position, transform.rotation);
+            audioSource.PlayOneShot(timeSlow);
         }
     }
 
